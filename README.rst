@@ -1,4 +1,4 @@
-ParallelDots-Python-API
+ParallelDots-PHP-API
 =======================
 
 A wrapper for the `ParallelDots API <http://www.paralleldots.com>`__.
