@@ -10,4 +10,5 @@ before_install:
 install:
   - composer install
 
-script: phpunit
+# script: phpunit
+script: nosetests
