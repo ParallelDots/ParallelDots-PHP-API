@@ -1,18 +1,14 @@
 {
-    "name": "paralleldots/paralleldots-php",
+    "name": "paralleldots/apis",
     "description": "Rest Api Wrapper for PHP.",
     "version": "0.1.1",
     "keywords": ["Rest Api Wrapper for PHP", "ParallelDots"],
     "type": "project",
     "require": {
-        "php": ">=5.3",
-        "eventviva/php-image-resize": "1.5.*",
-        "ext-curl": "*"
+        "php": ">=5.3"
     },
-	"require-dev": {
+    "require-dev": {
         "phpunit/phpunit": "3.7.*"
-    },
-    "autoload": {
-        "psr-4": {"ParallelDots\\": "ParallelDots/"}
     }
+    
 }
