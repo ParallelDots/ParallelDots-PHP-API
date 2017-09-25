@@ -2,7 +2,7 @@
 Php Wrapper for ParallelDots APIs
 
 #### Requirement :
-1. Install cCurl on your system if not present.
+1. Install cUrl on your system if not present.
 - For ubuntu use sudo apt-get install php-curl
 
 #### Installation
