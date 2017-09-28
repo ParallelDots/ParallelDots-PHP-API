@@ -78,7 +78,7 @@ intent("Finance ministry calls banks to discuss new facility to drain cash");
 
 <?php
 require(__DIR__ . '/vendor/paralleldots/apis/autoload.php');
-multilang_sentiment("La ville de Paris est trÃ¨s belle", "fr");
+multilang("La ville de Paris est trÃ¨s belle", "fr");
 ?>
 {"sentiment": "positive", "confidence_score": 0.845703}
 
@@ -87,5 +87,28 @@ require(__DIR__ . '/vendor/paralleldots/apis/autoload.php');
 abuse("you f**king a$$hole");
 ?>
 {"sentence_type": "Abusive", "confidence_score": 0.953125}
+
+<?php
+require(__DIR__ . '/vendor/paralleldots/apis/autoload.php');
+sentiment_social("I left my camera at home");
+?>
+{"probabilities": {"positive": 0.040374, "neutral": 0.491032, "negative": 0.468594}}
+
+<?php
+require(__DIR__ . '/vendor/paralleldots/apis/autoload.php');
+usage();
+?>
+{
+"emotion": 100,
+"sentiment": 100,
+"similarity": 100,
+"taxonomy": 100,
+"abuse": 100,
+"intent": 100,
+"keywords": 100,
+"ner": 100,
+"multilang": 100,
+"sentiment_social": 100
+}
 ```
 
