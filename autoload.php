@@ -156,6 +156,35 @@ $result = curl_exec($ch);
 return $result;
 }
 
+function sentiment_social($text)
+{
+$text = urlencode($text);
+if(getenv("pd_api_key"))
+$api_key = getenv("pd_api_key");
+else
+return "Set an api key";
+$url = 'https://apis.paralleldots.com/v2/sentiment_social?text='.$text.'&api_key='.$api_key;
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json')); 
+$result = curl_exec($ch);
+return $result;
+}
+
+function usage()
+{
+if(getenv("pd_api_key"))
+$api_key = getenv("pd_api_key");
+else
+return "Set an api key";
+$url = 'http://apis.paralleldots.com/usage?api_key='.$api_key;
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json')); 
+$result = curl_exec($ch);
+return $result;
+}
+
 ?>
 
 
