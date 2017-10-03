@@ -38,7 +38,7 @@ get_api_key();
 require(__DIR__ . '/vendor/paralleldots/apis/autoload.php');
 sentiment("Come on, lets play together");
 ?>
-{ "sentiment": 0.851301}
+{"probabilities"=>{"positive"=>0.568817, "neutral"=>0.400776, "negative"=>0.030407}, "sentiment"=>"positive"}
 
 <?php
 require(__DIR__ . '/vendor/paralleldots/apis/autoload.php');
