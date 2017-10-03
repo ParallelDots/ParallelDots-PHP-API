@@ -1,4 +1,4 @@
-# ParallelDots-Php-API
+# ParallelDots-PHP-API
 Php Wrapper for ParallelDots APIs
 
 #### Requirement :
