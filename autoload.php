@@ -14,7 +14,182 @@ function get_api_key()
 	else{
 		return "Set an api key";
 	}
+}
 
+function abuse($text)
+{
+$text = urlencode($text);
+if(getenv("pd_api_key"))
+$api_key = getenv("pd_api_key");
+else
+return "Set an api key";
+$url = 'https://apis.paralleldots.com/v3/abuse?api_key='.$api_key.'&text='.$text;
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json')); 
+$result = curl_exec($ch);
+return $result;
+}
+
+function custom_classifier($text, $category){
+$text = urlencode($text);
+$category = urlencode($category);
+if(getenv("pd_api_key"))
+$api_key = getenv("pd_api_key");
+else
+return "Set an api key";
+$url = 'https://apis.paralleldots.com/v3/custom_classifier?api_key='.$api_key.'&text='.$text.'&category='.$category;
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+$result = curl_exec($ch);
+return $result;
+}
+
+function emotion($text)
+{
+$text = urlencode($text);
+if(getenv("pd_api_key"))
+$api_key = getenv("pd_api_key");
+else
+return "Set an api key";
+$url = 'https://apis.paralleldots.com/v3/emotion?&api_key='.$api_key.'&text='.$text;
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+$result = curl_exec($ch);
+return $result;
+}
+
+function emotion_multilang($text, $lang_code)
+{
+$text = urlencode($text);
+if(getenv("pd_api_key"))
+$api_key = getenv("pd_api_key");
+else
+return "Set an api key";
+$url = 'https://apis.paralleldots.com/v3/emotion?api_key='.$api_key.'&text='.$text.'&lang_code='.$lang_code;
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+$result = curl_exec($ch);
+return $result;
+}
+
+function intent($text)
+{
+$text = urlencode($text);
+if(getenv("pd_api_key"))
+$api_key = getenv("pd_api_key");
+else
+return "Set an api key";
+$url = 'https://apis.paralleldots.com/v3/intent?api_key='.$api_key.'&text='.$text;
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+$result = curl_exec($ch);
+return $result;
+}
+
+function keywords($text)
+{
+$text = urlencode($text);
+if(getenv("pd_api_key"))
+$api_key = getenv("pd_api_key");
+else
+return "Set an api key";
+$url = 'https://apis.paralleldots.com/v3/keywords?api_key='.$api_key.'&text='.$text;
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+$result = curl_exec($ch);
+return $result;
+}
+
+function multilang_keywords($text,$lang_code)
+{
+$text = urlencode($text);
+if(getenv("pd_api_key"))
+$api_key = getenv("pd_api_key");
+else
+return "Set an api key";
+$lang_code = urlencode($lang_code);
+$url = 'https://apis.paralleldots.com/v3/multilang_keywords?api_key='.$api_key.'&text='.$text.'&lang_code='.$lang_code;
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+$result = curl_exec($ch);
+return $result;
+}
+
+function ner($text)
+{
+$text = urlencode($text);
+if(getenv("pd_api_key"))
+$api_key = getenv("pd_api_key");
+else
+return "Set an api key";
+$url = 'https://apis.paralleldots.com/v3/ner?api_key='.$api_key.'&text='.$text;
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+$result = curl_exec($ch);
+return $result;
+}
+
+function nsfw($path)
+{
+if(getenv("pd_api_key"))
+$api_key = getenv("pd_api_key");
+else
+return "Set an api key";
+$fileName = $path;
+$finfo = finfo_open(FILEINFO_MIME_TYPE);
+$finfo = finfo_file($finfo, $fileName);
+$baseName = basename($fileName);
+$url = 'https://apis.paralleldots.com/v3/nsfw?api_key='.$api_key;
+$ch = curl_init($url);
+$cFile = new CURLFile($fileName, $finfo, basename($fileName));
+$data = array( "file" => $cFile, "filename" => $cFile->postname);
+curl_setopt($ch, CURLOPT_POST,1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+$result = curl_exec($ch);
+return $result;
+}
+
+function phrase_extractor($text)
+{
+$text = urlencode($text);
+if(getenv("pd_api_key"))
+$api_key = getenv("pd_api_key");
+else
+return "Set an api key";
+$url = 'https://apis.paralleldots.com/v3/phrase_extractor?api_key='.$api_key.'&text='.$text;
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+$result = curl_exec($ch);
+return $result;
+}
+
+function popularity($path)
+{
+if(getenv("pd_api_key"))
+$api_key = getenv("pd_api_key");
+else
+return "Set an api key";
+$fileName = $path;
+$finfo = finfo_open(FILEINFO_MIME_TYPE);
+$finfo = finfo_file($finfo, $fileName);
+$baseName = basename($fileName);
+$url = 'https://apis.paralleldots.com/v3/popularity?api_key='.$api_key;
+$ch = curl_init($url);
+$cFile = new CURLFile($fileName, $finfo, basename($fileName));
+$data = array( "file" => $cFile, "filename" => $cFile->postname);
+curl_setopt($ch, CURLOPT_POST,1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+$result = curl_exec($ch);
+return $result;
 }
 
 function sentiment($text)
@@ -24,10 +199,25 @@ if(getenv("pd_api_key"))
 $api_key = getenv("pd_api_key");
 else
 return "Set an api key";
-$url = 'https://apis.paralleldots.com/v2/sentiment?text='.$text.'&api_key='.$api_key;
+$url = 'https://apis.paralleldots.com/v3/sentiment?api_key='.$api_key.'&text='.$text;
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json')); 
+$result = curl_exec($ch);
+return $result;
+}
+
+function sentiment_multilang($text, $lang_code)
+{
+$text = urlencode($text);
+if(getenv("pd_api_key"))
+$api_key = getenv("pd_api_key");
+else
+return "Set an api key";
+$url = 'https://apis.paralleldots.com/v3/sentiment?api_key='.$api_key.'&text='.$text.'&lang_code='.$lang_code;
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
 $result = curl_exec($ch);
 return $result;
 }
@@ -40,38 +230,7 @@ if(getenv("pd_api_key"))
 $api_key = getenv("pd_api_key");
 else
 return "Set an api key";
-$url = 'https://apis.paralleldots.com/v2/similarity?text_1='.$text1.'&text_2='.$text2.'&api_key='.$api_key;
-$ch = curl_init($url);
-curl_setopt($ch, CURLOPT_POST, 1);
-curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json')); 
-$result = curl_exec($ch);
-return $result;
-}
-
-
-function ner($text)
-{
-$text = urlencode($text);
-if(getenv("pd_api_key"))
-$api_key = getenv("pd_api_key");
-else
-return "Set an api key";
-$url = 'https://apis.paralleldots.com/v2/ner?text='.$text.'&api_key='.$api_key;
-$ch = curl_init($url);
-curl_setopt($ch, CURLOPT_POST, 1);
-curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json')); 
-$result = curl_exec($ch);
-return $result;
-}
-
-function keywords($text)
-{
-$text = urlencode($text);
-if(getenv("pd_api_key"))
-$api_key = getenv("pd_api_key");
-else
-return "Set an api key";
-$url = 'https://apis.paralleldots.com/v2/keywords?text='.$text.'&api_key='.$api_key;
+$url = 'https://apis.paralleldots.com/v3/similarity?api_key='.$api_key.'&text_1='.$text1.'&text_2='.$text2;
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json')); 
@@ -86,7 +245,7 @@ if(getenv("pd_api_key"))
 $api_key = getenv("pd_api_key");
 else
 return "Set an api key";
-$url = 'https://apis.paralleldots.com/v2/taxonomy?text='.$text.'&api_key='.$api_key;
+$url = 'https://apis.paralleldots.com/v3/taxonomy?api_key='.$api_key.'&text='.$text;
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json')); 
@@ -94,79 +253,17 @@ $result = curl_exec($ch);
 return $result;
 }
 
-function emotion($text)
+function text_parser($text)
 {
 $text = urlencode($text);
 if(getenv("pd_api_key"))
 $api_key = getenv("pd_api_key");
 else
 return "Set an api key";
-$url = 'https://apis.paralleldots.com/v2/emotion?text='.$text.'&api_key='.$api_key;
+$url = 'https://apis.paralleldots.com/v3/taxonomy?api_key='.$api_key.'&text='.$text;
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_POST, 1);
-curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json')); 
-$result = curl_exec($ch);
-return $result;
-}
-
-function intent($text)
-{
-$text = urlencode($text);
-if(getenv("pd_api_key"))
-$api_key = getenv("pd_api_key");
-else
-return "Set an api key";
-$url = 'https://apis.paralleldots.com/v2/intent?text='.$text.'&api_key='.$api_key;
-$ch = curl_init($url);
-curl_setopt($ch, CURLOPT_POST, 1);
-curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json')); 
-$result = curl_exec($ch);
-return $result;
-}
-
-function multilang($text,$lang_code)
-{
-$text = urlencode($text);
-if(getenv("pd_api_key"))
-$api_key = getenv("pd_api_key");
-else
-return "Set an api key";
-$lang_code = urlencode($lang_code);
-$url = 'https://apis.paralleldots.com/v2/multilang?text='.$text.'&lang_code='.$lang_code.'&api_key='.$api_key;
-$ch = curl_init($url);
-curl_setopt($ch, CURLOPT_POST, 1);
-curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json')); 
-$result = curl_exec($ch);
-return $result;
-}
-
-
-function abuse($text)
-{
-$text = urlencode($text);
-if(getenv("pd_api_key"))
-$api_key = getenv("pd_api_key");
-else
-return "Set an api key";
-$url = 'https://apis.paralleldots.com/v2/abuse?text='.$text.'&api_key='.$api_key;
-$ch = curl_init($url);
-curl_setopt($ch, CURLOPT_POST, 1);
-curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json')); 
-$result = curl_exec($ch);
-return $result;
-}
-
-function sentiment_social($text)
-{
-$text = urlencode($text);
-if(getenv("pd_api_key"))
-$api_key = getenv("pd_api_key");
-else
-return "Set an api key";
-$url = 'https://apis.paralleldots.com/v2/sentiment_social?text='.$text.'&api_key='.$api_key;
-$ch = curl_init($url);
-curl_setopt($ch, CURLOPT_POST, 1);
-curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json')); 
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
 $result = curl_exec($ch);
 return $result;
 }
@@ -186,5 +283,3 @@ return $result;
 }
 
 ?>
-
-
