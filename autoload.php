@@ -157,6 +157,20 @@ $result = curl_exec($ch);
 return $result;
 }
 
+function nsfw_url($url_to_image)
+{
+if(getenv("pd_api_key"))
+$api_key = getenv("pd_api_key");
+else
+return "Set an api key";
+$url = 'https://apis.paralleldots.com/v3/phrase_extractor?api_key='.$api_key.'&url='.$url_to_image;
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+$result = curl_exec($ch);
+return $result;
+}
+
 function phrase_extractor($text)
 {
 $text = urlencode($text);
@@ -188,6 +202,20 @@ $cFile = new CURLFile($fileName, $finfo, basename($fileName));
 $data = array( "file" => $cFile, "filename" => $cFile->postname);
 curl_setopt($ch, CURLOPT_POST,1);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+$result = curl_exec($ch);
+return $result;
+}
+
+function popularity_url($url_to_image)
+{
+if(getenv("pd_api_key"))
+$api_key = getenv("pd_api_key");
+else
+return "Set an api key";
+$url = 'https://apis.paralleldots.com/v3/phrase_extractor?api_key='.$api_key.'&url='.$url_to_image;
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
 $result = curl_exec($ch);
 return $result;
 }
