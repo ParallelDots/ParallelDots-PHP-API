@@ -165,7 +165,7 @@ if(getenv("pd_api_key"))
 $api_key = getenv("pd_api_key");
 else
 return "Set an api key";
-$url = 'https://apis.paralleldots.com/v3/phrase_extractor?api_key='.$api_key.'&url='.$url_to_image;
+$url = 'https://apis.paralleldots.com/v3/nsfw?api_key='.$api_key.'&url='.$url_to_image;
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 0); 
 curl_setopt($ch, CURLOPT_TIMEOUT, 60); //timeout in seconds
@@ -204,10 +204,10 @@ $url = 'https://apis.paralleldots.com/v3/popularity?api_key='.$api_key;
 $ch = curl_init($url);
 $cFile = new CURLFile($fileName, $finfo, basename($fileName));
 $data = array( "file" => $cFile, "filename" => $cFile->postname);
-curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 0); 
-curl_setopt($ch, CURLOPT_TIMEOUT, 60); //timeout in seconds
 curl_setopt($ch, CURLOPT_POST,1);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 0); 
+curl_setopt($ch, CURLOPT_TIMEOUT, 60); //timeout in seconds
 $result = curl_exec($ch);
 return $result;
 }
@@ -218,12 +218,12 @@ if(getenv("pd_api_key"))
 $api_key = getenv("pd_api_key");
 else
 return "Set an api key";
-$url = 'https://apis.paralleldots.com/v3/phrase_extractor?api_key='.$api_key.'&url='.$url_to_image;
+$url = 'https://apis.paralleldots.com/v3/popularity?api_key='.$api_key.'&url='.$url_to_image;
 $ch = curl_init($url);
-curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 0); 
-curl_setopt($ch, CURLOPT_TIMEOUT, 60); //timeout in seconds
 curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 0); 
+curl_setopt($ch, CURLOPT_TIMEOUT, 60); //timeout in seconds
 $result = curl_exec($ch);
 return $result;
 }
