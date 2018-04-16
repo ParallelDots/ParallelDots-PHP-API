@@ -29,7 +29,7 @@ composer install
 	- Dutch ( nl )
 	- Italian (it)
 	- Japanese ( ja )
-	- Indonesian ( id )
+	- Russian ( ru )
 	- Thai ( th )
 	- Danish ( da )
 	- Finish ( fi )
