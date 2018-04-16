@@ -20,6 +20,23 @@ Php Wrapper for ParallelDots APIs
 ``` sh
 composer install
 ```
+#### Languages Supported
+	- Portuguese ( pt )
+	- Simplified Chinese ( zh )
+	- Spanish ( es )
+	- German ( de )
+	- French ( fr )
+	- Dutch ( nl )
+	- Italian (it)
+	- Japanese ( ja )
+	- Indonesian ( id )
+	- Thai ( th )
+	- Danish ( da )
+	- Finish ( fi )
+	- Arabic (ar)
+	- Greek (el)
+  
+  
 ### API Keys & Setup
 Sign up for ParallelDots APIs account to get your free API key [here](https://user.apis.paralleldots.com/signing-up). You will receive an email with the details to access your API key.
 Configuration:
