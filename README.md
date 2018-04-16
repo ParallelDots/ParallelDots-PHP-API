@@ -21,7 +21,7 @@ Php Wrapper for ParallelDots APIs
 composer install
 ```
 ### API Keys & Setup
-Signup and get your free API key from [ParallelDots](https://www.paralleldots.com/pricing). You will receive a mail containing the API key at the registered email id.
+Sign up for ParallelDots APIs account to get your free API key [here](https://user.apis.paralleldots.com/signing-up). You will receive an email with the details to access your API key.
 Configuration:
 ```sh
 <?php
