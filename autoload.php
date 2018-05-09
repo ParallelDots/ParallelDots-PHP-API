@@ -76,6 +76,45 @@ $result = curl_exec($ch);
 return $result;
 }
 
+function facial_emotion($path)
+{
+if(getenv("pd_api_key"))
+$api_key = getenv("pd_api_key");
+else
+return "Set an api key";
+$fileName = $path;
+$finfo = finfo_open(FILEINFO_MIME_TYPE);
+$finfo = finfo_file($finfo, $fileName);
+$baseName = basename($fileName);
+$url = 'https://apis.paralleldots.com/v3/facial_emotion?api_key='.$api_key;
+$ch = curl_init($url);
+$cFile = new CURLFile($fileName, $finfo, basename($fileName));
+$data = array( "file" => $cFile, "filename" => $cFile->postname);
+curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 0);
+curl_setopt($ch, CURLOPT_TIMEOUT, 60); //timeout in seconds
+curl_setopt($ch, CURLOPT_POST,1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+$result = curl_exec($ch);
+return $result;
+}
+
+function facial_emotion_url($url_to_image)
+{
+if(getenv("pd_api_key"))
+$api_key = getenv("pd_api_key");
+else
+return "Set an api key";
+$url = 'https://apis.paralleldots.com/v3/facial_emotion?api_key='.$api_key.'&url='.$url_to_image;
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 0);
+curl_setopt($ch, CURLOPT_TIMEOUT, 60); //timeout in seconds
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+$result = curl_exec($ch);
+return $result;
+}
+
+
 function intent($text)
 {
 $text = urlencode($text);
@@ -175,6 +214,45 @@ $result = curl_exec($ch);
 return $result;
 }
 
+function object_recognizer($path)
+{
+if(getenv("pd_api_key"))
+$api_key = getenv("pd_api_key");
+else
+return "Set an api key";
+$fileName = $path;
+$finfo = finfo_open(FILEINFO_MIME_TYPE);
+$finfo = finfo_file($finfo, $fileName);
+$baseName = basename($fileName);
+$url = 'https://apis.paralleldots.com/v3/object_recognizer?api_key='.$api_key;
+$ch = curl_init($url);
+$cFile = new CURLFile($fileName, $finfo, basename($fileName));
+$data = array( "file" => $cFile, "filename" => $cFile->postname);
+curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 0);
+curl_setopt($ch, CURLOPT_TIMEOUT, 60); //timeout in seconds
+curl_setopt($ch, CURLOPT_POST,1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+$result = curl_exec($ch);
+return $result;
+}
+
+function object_recognizer_url($url_to_image)
+{
+if(getenv("pd_api_key"))
+$api_key = getenv("pd_api_key");
+else
+return "Set an api key";
+$url = 'https://apis.paralleldots.com/v3/object_recognizer?api_key='.$api_key.'&url='.$url_to_image;
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 0);
+curl_setopt($ch, CURLOPT_TIMEOUT, 60); //timeout in seconds
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+$result = curl_exec($ch);
+return $result;
+}
+
+
 function phrase_extractor($text)
 {
 $text = urlencode($text);
@@ -223,7 +301,7 @@ $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
 curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 0); 
-curl_setopt($ch, CURLOPT_TIMEOUT, 60); //timeout in seconds
+curl_setopt($ch, CURLOPT_TIMEOUT, 60L); //timeout in seconds
 $result = curl_exec($ch);
 return $result;
 }
