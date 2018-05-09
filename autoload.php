@@ -301,7 +301,7 @@ $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
 curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 0); 
-curl_setopt($ch, CURLOPT_TIMEOUT, 60L); //timeout in seconds
+curl_setopt($ch, CURLOPT_TIMEOUT, 60); //timeout in seconds
 $result = curl_exec($ch);
 return $result;
 }
