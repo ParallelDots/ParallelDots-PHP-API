@@ -39,7 +39,7 @@ if(getenv("pd_api_key"))
 $api_key = getenv("pd_api_key");
 else
 return "Set an api key";
-$url = 'https://apis.paralleldots.com/v3/abuse?api_key='.$api_key.'&data='.$text_list;
+$url = 'https://apis.paralleldots.com/v3/abuse_batch?api_key='.$api_key.'&data='.$text_list;
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
