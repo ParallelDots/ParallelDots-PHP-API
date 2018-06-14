@@ -599,6 +599,22 @@ $result = curl_exec($ch);
 return $result;
 }
 
+function text_parser($text)
+{
+$text = urlencode($text);
+if(getenv("pd_api_key"))
+$api_key = getenv("pd_api_key");
+else
+return "Set an api key";
+$url = 'https://apis.paralleldots.com/v3/text_parser?&api_key='.$api_key.'&text='.$text;
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+$result = curl_exec($ch);
+return $result;
+}
+
 function usage()
 {
 if(getenv("pd_api_key"))
