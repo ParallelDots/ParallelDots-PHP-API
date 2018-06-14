@@ -51,10 +51,6 @@ get_api_key();
 ```
 #### Examples
 ```sh
-$text_list = json_encode(array("drugs are fun", "don\'t do drugs, stay in school", "lol you a fag son", "I have a throat infection"));
-$text_list_multilang = json_encode(array("les drogues sont amusantes", "ne pas faire de la drogue reste à l'école", "lol vous un fils de fag", "J'ai une infection de la gorge"));
-$lang_text = "La ville de Paris est trÃ¨s belle";
-
 <?php
 require(__DIR__ . '/vendor/paralleldots/apis/autoload.php');
 echo abuse("you f**king ass hole");
