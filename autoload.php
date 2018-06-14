@@ -32,6 +32,23 @@ $result = curl_exec($ch);
 return $result;
 }
 
+function abuse_batch($text_list)
+{
+$text_list = urlencode($text_list);
+if(getenv("pd_api_key"))
+$api_key = getenv("pd_api_key");
+else
+return "Set an api key";
+$url = 'https://apis.paralleldots.com/v3/abuse?api_key='.$api_key.'&data='.$text_list;
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+$result = curl_exec($ch);
+return $result;
+}
+
+
 function custom_classifier($text, $category){
 $text = urlencode($text);
 $category = urlencode($category);
@@ -80,6 +97,38 @@ $result = curl_exec($ch);
 return $result;
 }
 
+function emotion_batch($text_list)
+{
+$text_list = urlencode($text_list);
+if(getenv("pd_api_key"))
+$api_key = getenv("pd_api_key");
+else
+return "Set an api key";
+$url = 'https://apis.paralleldots.com/v3/emotion_batch?&api_key='.$api_key.'&data='.$text_list;
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+$result = curl_exec($ch);
+return $result;
+}
+
+function emotion_multilang_batch($text_list, $lang_code)
+{
+$text_list = urlencode($text_list);
+if(getenv("pd_api_key"))
+$api_key = getenv("pd_api_key");
+else
+return "Set an api key";
+$url = 'https://apis.paralleldots.com/v3/emotion_batch?api_key='.$api_key.'&data='.$text_list.'&lang_code='.$lang_code;
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+$result = curl_exec($ch);
+return $result;
+}
+
 function facial_emotion($path)
 {
 if(getenv("pd_api_key"))
@@ -120,7 +169,6 @@ $result = curl_exec($ch);
 return $result;
 }
 
-
 function intent($text)
 {
 $text = urlencode($text);
@@ -137,6 +185,22 @@ $result = curl_exec($ch);
 return $result;
 }
 
+function intent_batch($text_list)
+{
+$text_list = urlencode($text_list);
+if(getenv("pd_api_key"))
+$api_key = getenv("pd_api_key");
+else
+return "Set an api key";
+$url = 'https://apis.paralleldots.com/v3/intent_batch?api_key='.$api_key.'&data='.$text_list;
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+$result = curl_exec($ch);
+return $result;
+}
+
 function keywords($text)
 {
 $text = urlencode($text);
@@ -145,6 +209,54 @@ $api_key = getenv("pd_api_key");
 else
 return "Set an api key";
 $url = 'https://apis.paralleldots.com/v3/keywords?api_key='.$api_key.'&text='.$text;
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+$result = curl_exec($ch);
+return $result;
+}
+
+function keywords_batch($text_list)
+{
+$text_list = urlencode($text_list);
+if(getenv("pd_api_key"))
+$api_key = getenv("pd_api_key");
+else
+return "Set an api key";
+$url = 'https://apis.paralleldots.com/v3/keywords_batch?api_key='.$api_key.'&data='.$text_list;
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+$result = curl_exec($ch);
+return $result;
+}
+
+function language_detection($text)
+{
+$text = urlencode($text);
+if(getenv("pd_api_key"))
+$api_key = getenv("pd_api_key");
+else
+return "Set an api key";
+$url = 'https://apis.paralleldots.com/v3/language_detection?api_key='.$api_key.'&text='.$text;
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+$result = curl_exec($ch);
+return $result;
+}
+
+function language_detection_batch($text_list)
+{
+$text_list = urlencode($text_list);
+if(getenv("pd_api_key"))
+$api_key = getenv("pd_api_key");
+else
+return "Set an api key";
+$url = 'https://apis.paralleldots.com/v3/language_detection_batch?api_key='.$api_key.'&data='.$text_list;
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -185,6 +297,23 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
 $result = curl_exec($ch);
 return $result;
 }
+
+function ner_batch($text_list)
+{
+$text_list = urlencode($text_list);
+if(getenv("pd_api_key"))
+$api_key = getenv("pd_api_key");
+else
+return "Set an api key";
+$url = 'https://apis.paralleldots.com/v3/ner_batch?api_key='.$api_key.'&data='.$text_list;
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+$result = curl_exec($ch);
+return $result;
+}
+
 
 function nsfw($path)
 {
@@ -283,6 +412,23 @@ $result = curl_exec($ch);
 return $result;
 }
 
+function phrase_extractor_batch($text_list)
+{
+$text_list = urlencode($text_list);
+if(getenv("pd_api_key"))
+$api_key = getenv("pd_api_key");
+else
+return "Set an api key";
+$url = 'https://apis.paralleldots.com/v3/phrase_extractor_batch?api_key='.$api_key.'&data='.$text_list;
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+$result = curl_exec($ch);
+return $result;
+}
+
+
 function popularity($path)
 {
 if(getenv("pd_api_key"))
@@ -355,6 +501,38 @@ $result = curl_exec($ch);
 return $result;
 }
 
+function sentiment_batch($text_list)
+{
+$text_list = urlencode($text_list);
+if(getenv("pd_api_key"))
+$api_key = getenv("pd_api_key");
+else
+return "Set an api key";
+$url = 'https://apis.paralleldots.com/v3/sentiment_batch?api_key='.$api_key.'&data='.$text_list;
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+$result = curl_exec($ch);
+return $result;
+}
+
+function sentiment_multilang_batch($text_list, $lang_code)
+{
+$text_list = urlencode($text_list);
+if(getenv("pd_api_key"))
+$api_key = getenv("pd_api_key");
+else
+return "Set an api key";
+$url = 'https://apis.paralleldots.com/v3/sentiment_batch?api_key='.$api_key.'&data='.$text_list.'&lang_code='.$lang_code;
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+$result = curl_exec($ch);
+return $result;
+}
+
 function similarity($text1,$text2)
 {
 $text1 = urlencode($text1);
@@ -387,6 +565,23 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
 $result = curl_exec($ch);
 return $result;
 }
+
+function taxonomy_batch($text_list)
+{
+$text_list = urlencode($text_list);
+if(getenv("pd_api_key"))
+$api_key = getenv("pd_api_key");
+else
+return "Set an api key";
+$url = 'https://apis.paralleldots.com/v3/taxonomy_batch?api_key='.$api_key.'&data='.$text_list;
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+$result = curl_exec($ch);
+return $result;
+}
+
 
 function text_parser($text)
 {
