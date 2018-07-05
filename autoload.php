@@ -39,7 +39,7 @@ if(getenv("pd_api_key"))
 $api_key = getenv("pd_api_key");
 else
 return "Set an api key";
-$url = 'https://apis.paralleldots.com/v3/abuse_batch?api_key='.$api_key.'&data='.$text_list;
+$url = 'https://apis.paralleldots.com/v3/abuse_batch?api_key='.$api_key.'&text='.$text_list;
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -104,7 +104,7 @@ if(getenv("pd_api_key"))
 $api_key = getenv("pd_api_key");
 else
 return "Set an api key";
-$url = 'https://apis.paralleldots.com/v3/emotion_batch?api_key='.$api_key.'&data='.$text_list;
+$url = 'https://apis.paralleldots.com/v3/emotion_batch?api_key='.$api_key.'&text='.$text_list;
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -120,7 +120,7 @@ if(getenv("pd_api_key"))
 $api_key = getenv("pd_api_key");
 else
 return "Set an api key";
-$url = 'https://apis.paralleldots.com/v3/emotion_batch?api_key='.$api_key.'&data='.$text_list.'&lang_code='.$lang_code;
+$url = 'https://apis.paralleldots.com/v3/emotion_batch?api_key='.$api_key.'&text='.$text_list.'&lang_code='.$lang_code;
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -192,7 +192,7 @@ if(getenv("pd_api_key"))
 $api_key = getenv("pd_api_key");
 else
 return "Set an api key";
-$url = 'https://apis.paralleldots.com/v3/intent_batch?api_key='.$api_key.'&data='.$text_list;
+$url = 'https://apis.paralleldots.com/v3/intent_batch?api_key='.$api_key.'&text='.$text_list;
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -224,7 +224,7 @@ if(getenv("pd_api_key"))
 $api_key = getenv("pd_api_key");
 else
 return "Set an api key";
-$url = 'https://apis.paralleldots.com/v3/keywords_batch?api_key='.$api_key.'&data='.$text_list;
+$url = 'https://apis.paralleldots.com/v3/keywords_batch?api_key='.$api_key.'&text='.$text_list;
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -256,7 +256,7 @@ if(getenv("pd_api_key"))
 $api_key = getenv("pd_api_key");
 else
 return "Set an api key";
-$url = 'https://apis.paralleldots.com/v3/language_detection_batch?api_key='.$api_key.'&data='.$text_list;
+$url = 'https://apis.paralleldots.com/v3/language_detection_batch?api_key='.$api_key.'&text='.$text_list;
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -305,7 +305,7 @@ if(getenv("pd_api_key"))
 $api_key = getenv("pd_api_key");
 else
 return "Set an api key";
-$url = 'https://apis.paralleldots.com/v3/ner_batch?api_key='.$api_key.'&data='.$text_list;
+$url = 'https://apis.paralleldots.com/v3/ner_batch?api_key='.$api_key.'&text='.$text_list;
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -419,7 +419,7 @@ if(getenv("pd_api_key"))
 $api_key = getenv("pd_api_key");
 else
 return "Set an api key";
-$url = 'https://apis.paralleldots.com/v3/phrase_extractor_batch?api_key='.$api_key.'&data='.$text_list;
+$url = 'https://apis.paralleldots.com/v3/phrase_extractor_batch?api_key='.$api_key.'&text='.$text_list;
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -508,7 +508,7 @@ if(getenv("pd_api_key"))
 $api_key = getenv("pd_api_key");
 else
 return "Set an api key";
-$url = 'https://apis.paralleldots.com/v3/sentiment_batch?api_key='.$api_key.'&data='.$text_list;
+$url = 'https://apis.paralleldots.com/v3/sentiment_batch?api_key='.$api_key.'&text='.$text_list;
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -524,7 +524,7 @@ if(getenv("pd_api_key"))
 $api_key = getenv("pd_api_key");
 else
 return "Set an api key";
-$url = 'https://apis.paralleldots.com/v3/sentiment_batch?api_key='.$api_key.'&data='.$text_list.'&lang_code='.$lang_code;
+$url = 'https://apis.paralleldots.com/v3/sentiment_batch?api_key='.$api_key.'&text='.$text_list.'&lang_code='.$lang_code;
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -573,7 +573,7 @@ if(getenv("pd_api_key"))
 $api_key = getenv("pd_api_key");
 else
 return "Set an api key";
-$url = 'https://apis.paralleldots.com/v3/taxonomy_batch?api_key='.$api_key.'&data='.$text_list;
+$url = 'https://apis.paralleldots.com/v3/taxonomy_batch?api_key='.$api_key.'&text='.$text_list;
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
