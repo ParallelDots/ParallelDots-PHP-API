@@ -59,18 +59,14 @@ echo abuse("you f**king ass hole");
 
 <?php
 require(__DIR__ . '/vendor/paralleldots/apis/autoload.php');
-$text_list = json_encode(array("drugs are fun", "don\'t do drugs, stay in school", "lol you a fag son", "I have a throat infection"));
+$text_list = "[\"drugs are fun\",\"don't do drugs, stay in school\",\"lol you a fag son\",\"I have a throat infection\"]";
 echo abuse_batch($text_list);
 ?>
 {"code": 200, "abuse": [{"sentence_type": "Non Abusive", "confidence_score": 0.904297}, {"sentence_type": "Non Abusive", "confidence_score": 0.939453}, {"sentence_type": "Abusive", "confidence_score": 0.884766}, {"sentence_type": "Non Abusive", "confidence_score": 0.859375}]}
 
 <?php
 require(__DIR__ . '/vendor/paralleldots/apis/autoload.php');
-$obj = json_encode((object) [
-    'world politics' => ["diplomacy", "UN", "war"],
-    'india' => ["congress", "india", "bjp"],
-    'finance' => ["markets", "economy","shares"]
-]);
+$obj = "{\"world politics\":[\"diplomacy\",\"UN\",\"war\"],\"india\":[\"congress\",\"india\",\"bjp\"],\"finance\":[\"markets\",\"economy\",\"shares\"]}";
 echo custom_classifier("Narendra Modi is the Prime Minister of India", $obj);
 ?>
 {"code": 200, "taxonomy": [{"confidence_score": 0.929256021976471, "tag": "india"}, {"confidence_score": 0.9066339731216431, "tag": "world politics"}, {"confidence_score": 0.5557219982147217, "tag": "finance"}]}
@@ -89,14 +85,14 @@ echo emotion_multilang("Avez-vous entendu la dernière chanson de Porcupine Tree
 
 <?php
 require(__DIR__ . '/vendor/paralleldots/apis/autoload.php');
-$text_list = json_encode(array("drugs are fun", "don\'t do drugs, stay in school", "lol you a fag son", "I have a throat infection"));
+$text_list = "[\"drugs are fun\",\"don't do drugs, stay in school\",\"lol you a fag son\",\"I have a throat infection\"]";
 echo emotion_batch($text_list);
 ?>
 {"code": 200, "emotion": [{"Excited": 0.2082173830066366, "Angry": 0.08368749025924326, "Sarcasm": 0.14361357966835644, "Sad": 0.025132654797074747, "Happy": 0.1269828871815771, "Fear": 0.344180628127824, "Bored": 0.06818537695928778}, {"Excited": 0.16285099790681773, "Angry": 0.15343815844211714, "Sarcasm": 0.12351721393519076, "Sad": 0.09262522781839527, "Happy": 0.1941499715581231, "Fear": 0.18145158393897357, "Bored": 0.09196684640038236}, {"Excited": 0.16457090063285224, "Angry": 0.1216389498218648, "Sarcasm": 0.11124312097614852, "Sad": 0.05410169293913279, "Happy": 0.07598588202024392, "Fear": 0.18020579627989994, "Bored": 0.2922536573298578}, {"Excited": 0.004337021311595699, "Angry": 0.46982189055546925, "Sarcasm": 0.05327575096045899, "Sad": 0.3672790882763135, "Happy": 0.005119673993076841, "Fear": 0.09443579921654321, "Bored": 0.005730775686542725}]}
 
 <?php
 require(__DIR__ . '/vendor/paralleldots/apis/autoload.php');
-$text_list_multilang = json_encode(array("les drogues sont amusantes", "ne pas faire de la drogue reste à l'école", "lol vous un fils de fag", "J'ai une infection de la gorge"));
+$text_list_multilang = "[\"les drogues sont amusantes\",\"ne pas faire de la drogue reste à l'école\",\"lol vous un fils de fag\",\"J'ai une infection de la gorge\"]";
 echo emotion_multilang_batch($text_list_multilang, "fr");
 ?>
 {"code": 200, "emotion": [{"Excited": 0.2082173830066366, "Angry": 0.08368749025924326, "Sarcasm": 0.14361357966835644, "Sad": 0.025132654797074747, "Happy": 0.1269828871815771, "Fear": 0.344180628127824, "Bored": 0.06818537695928778}, {"Excited": 0.04239430417791154, "Angry": 0.5973252487701952, "Sarcasm": 0.07606870827400262, "Sad": 0.05560273629943171, "Happy": 0.048649541948481326, "Fear": 0.09433366519047207, "Bored": 0.08562579533950584}, {"Excited": 0.20433981731805748, "Angry": 0.1220104704524655, "Sarcasm": 0.13830145223523543, "Sad": 0.04597934708090136, "Happy": 0.0987838892687481, "Fear": 0.16393978751891622, "Bored": 0.22664523612567564}, {"Excited": 0.004337021311595699, "Angry": 0.46982189055546925, "Sarcasm": 0.05327575096045899, "Sad": 0.3672790882763135, "Happy": 0.005119673993076841, "Fear": 0.09443579921654321, "Bored": 0.005730775686542725}]}
@@ -123,7 +119,7 @@ echo intent("Finance ministry calls banks to discuss new facility to drain cash"
 
 <?php
 require(__DIR__ . '/vendor/paralleldots/apis/autoload.php');
-$text_list = json_encode(array("drugs are fun", "don\'t do drugs, stay in school", "lol you a fag son", "I have a throat infection"));
+$text_list = "[\"drugs are fun\",\"don't do drugs, stay in school\",\"lol you a fag son\",\"I have a throat infection\"]";
 echo intent_batch($text_list);
 ?>
 {"code": 200, "intent": [{"feedback/opinion": 0.141, "query": 0.002, "spam/junk": 0.66, "marketing": 0.116, "news": 0.08}, {"feedback/opinion": 0.289, "query": 0.013, "spam/junk": 0.482, "marketing": 0.096, "news": 0.12}, {"feedback/opinion": 0.333, "query": 0.001, "spam/junk": 0.664, "marketing": 0.001, "news": 0.001}, {"feedback/opinion": 0.469, "query": 0.404, "spam/junk": 0.124, "marketing": 0.0, "news": 0.004}]}
@@ -136,7 +132,7 @@ echo keywords("Prime Minister Narendra Modi tweeted a link to the speech Human R
 
 <?php
 require(__DIR__ . '/vendor/paralleldots/apis/autoload.php');
-$text_list = json_encode(array("drugs are fun", "don\'t do drugs, stay in school", "lol you a fag son", "I have a throat infection"));
+$text_list = "[\"drugs are fun\",\"don't do drugs, stay in school\",\"lol you a fag son\",\"I have a throat infection\"]";
 echo keywords_batch($text_list);
 ?>
 {"code": 200, "keywords": [[{"keyword": "fun", "confidence_score": 0.560126}], [{"keyword": "drugs", "confidence_score": 0.894901}, {"keyword": "school", "confidence_score": 0.509218}], [{"keyword": "fag", "confidence_score": 0.791485}], [{"keyword": "throat infection", "confidence_score": 0.849233}]]}
@@ -150,7 +146,7 @@ echo language_detection($lang_text);
 
 <?php
 require(__DIR__ . '/vendor/paralleldots/apis/autoload.php');
-$text_list = json_encode(array("drugs are fun", "don\'t do drugs, stay in school", "lol you a fag son", "I have a throat infection"));
+$text_list = "[\"drugs are fun\",\"don't do drugs, stay in school\",\"lol you a fag son\",\"I have a throat infection\"]";
 echo language_detection_batch($text_list);
 ?>
 {"code": 200, "lang_detection": [{"output": "French", "prob": 0.9990742802619934}, {"output": "French", "prob": 0.9999998807907104}, {"output": "French", "prob": 0.996209442615509}, {"output": "French", "prob": 0.9985631108283997}]}
@@ -169,7 +165,7 @@ echo ner("Narendra Modi is the prime minister of India");
 
 <?php
 require(__DIR__ . '/vendor/paralleldots/apis/autoload.php');
-$text_list = json_encode(array("drugs are fun", "don\'t do drugs, stay in school", "lol you a fag son", "I have a throat infection"));
+$text_list = "[\"drugs are fun\",\"don't do drugs, stay in school\",\"lol you a fag son\",\"I have a throat infection\"]";
 echo ner_batch($text_list);
 ?>
 {"entities": [[], [{"name": "don", "category": "name", "confidence_score": 0.671695}], [], []], "code": 200}
@@ -210,7 +206,7 @@ echo phrase_extractor("The girls giggling and playing in the park never seemed t
 
 <?php
 require(__DIR__ . '/vendor/paralleldots/apis/autoload.php');
-$text_list = json_encode(array("drugs are fun", "don\'t do drugs, stay in school", "lol you a fag son", "I have a throat infection"));
+$text_list = "[\"drugs are fun\",\"don't do drugs, stay in school\",\"lol you a fag son\",\"I have a throat infection\"]";
 echo phrase_extractor_batch($text_list);
 ?>
 {"code": 200, "phrases": [[], [{"relevance_score": 1, "keyword": "school"}], [{"relevance_score": 2, "keyword": "fag son"}], [{"relevance_score": 2, "keyword": "throat infection"}]]}
@@ -243,14 +239,14 @@ echo sentiment_multilang("Allez, jouons ensemble", "fr");
 
 <?php
 require(__DIR__ . '/vendor/paralleldots/apis/autoload.php');
-$text_list = json_encode(array("drugs are fun", "don\'t do drugs, stay in school", "lol you a fag son", "I have a throat infection"));
+$text_list = "[\"drugs are fun\",\"don't do drugs, stay in school\",\"lol you a fag son\",\"I have a throat infection\"]";
 echo sentiment_batch($text_list);
 ?>
 {"sentiment": [{"positive": 0.69, "negative": 0.046, "neutral": 0.265}, {"positive": 0.192, "negative": 0.187, "neutral": 0.621}, {"positive": 0.527, "negative": 0.275, "neutral": 0.198}, {"positive": 0.077, "negative": 0.908, "neutral": 0.015}], "code": 200}
 
 <?php
 require(__DIR__ . '/vendor/paralleldots/apis/autoload.php');
-$text_list_multilang = json_encode(array("les drogues sont amusantes", "ne pas faire de la drogue reste à l'école", "lol vous un fils de fag", "J'ai une infection de la gorge"));
+$text_list_multilang = "[\"les drogues sont amusantes\",\"ne pas faire de la drogue reste à l'école\",\"lol vous un fils de fag\",\"J'ai une infection de la gorge\"]";
 echo sentiment_multilang_batch($text_list_multilang, "fr");
 ?>
 {"sentiment": [{"positive": 0.69, "negative": 0.046, "neutral": 0.265}, {"positive": 0.021, "negative": 0.492, "neutral": 0.487}, {"positive": 0.564, "negative": 0.194, "neutral": 0.242}, {"positive": 0.077, "negative": 0.908, "neutral": 0.015}], "code": 200}
@@ -269,7 +265,7 @@ echo taxonomy("Narendra Modi is the prime minister of India");
 
 <?php
 require(__DIR__ . '/vendor/paralleldots/apis/autoload.php');
-$text_list = json_encode(array("drugs are fun", "don\'t do drugs, stay in school", "lol you a fag son", "I have a throat infection"));
+$text_list = "[\"drugs are fun\",\"don't do drugs, stay in school\",\"lol you a fag son\",\"I have a throat infection\"]";
 echo taxonomy_batch($text_list);
 ?>
 {"taxonomy": [[{"confidence_score": 0.996437, "tag": "health and fitness/drugs"}, {"confidence_score": 0.967404, "tag": "family and parenting/babies and toddlers"}, {"confidence_score": 0.6848993897438049, "tag": "automotive and vehicles/motor shows"}], [{"confidence_score": 0.970658, "tag": "health and fitness/drugs"}, {"confidence_score": 0.9462, "tag": "family and parenting/adoption"}, {"confidence_score": 0.967469, "tag": "education/school"}], [{"confidence_score": 0.9779467582702637, "tag": "family and parenting/parenting teens"}, {"confidence_score": 0.972425, "tag": "health and fitness/therapy"}, {"confidence_score": 0.9049649834632874, "tag": "pets/cats"}], [{"confidence_score": 0.985712, "tag": "health and fitness/disease"}, {"confidence_score": 0.974752, "tag": "family and parenting/adoption"}, {"confidence_score": 0.97041, "tag": "pets/cats"}]], "code": 200}
