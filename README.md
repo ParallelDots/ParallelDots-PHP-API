@@ -62,20 +62,26 @@ require(__DIR__ . '/vendor/paralleldots/apis/autoload.php');
 $text_list = "[\"drugs are fun\",\"don't do drugs, stay in school\",\"lol you a fag son\",\"I have a throat infection\"]";
 echo abuse_batch($text_list);
 ?>
-{"code": 200, "abuse": [{"sentence_type": "Non Abusive", "confidence_score": 0.904297}, {"sentence_type": "Non Abusive", "confidence_score": 0.939453}, {"sentence_type": "Abusive", "confidence_score": 0.884766}, {"sentence_type": "Non Abusive", "confidence_score": 0.859375}]}
+{"abuse": [{"sentence_type": "Non Abusive", "confidence_score": 0.904297}, {"sentence_type": "Non Abusive", "confidence_score": 0.939453}, {"sentence_type": "Abusive", "confidence_score": 0.884766}, {"sentence_type": "Non Abusive", "confidence_score": 0.859375}]}
 
 <?php
 require(__DIR__ . '/vendor/paralleldots/apis/autoload.php');
 $obj = "{\"world politics\":[\"diplomacy\",\"UN\",\"war\"],\"india\":[\"congress\",\"india\",\"bjp\"],\"finance\":[\"markets\",\"economy\",\"shares\"]}";
 echo custom_classifier("Narendra Modi is the Prime Minister of India", $obj);
 ?>
-{"code": 200, "taxonomy": [{"confidence_score": 0.929256021976471, "tag": "india"}, {"confidence_score": 0.9066339731216431, "tag": "world politics"}, {"confidence_score": 0.5557219982147217, "tag": "finance"}]}
+{"taxonomy": [{"confidence_score": 0.929256021976471, "tag": "india"}, {"confidence_score": 0.9066339731216431, "tag": "world politics"}, {"confidence_score": 0.5557219982147217, "tag": "finance"}]}
 
 <?php
 require(__DIR__ . '/vendor/paralleldots/apis/autoload.php');
 echo emotion("Did you hear the latest Porcupine Tree song ? It's rocking !");
 ?>
-{"code": 200, "emotion": {"probabilities": {"Excited": 0.35946185611995524, "Angry": 0.047388801553766284, "Sarcasm": 0.11246225260033746, "Sad": 0.008463515319536615, "Happy": 0.38386026259527695, "Fear": 0.0832442102790067, "Bored": 0.005119101532120664}, "emotion": "Happy"}}
+{"emotion":{"Fear":0.1319197217,"Angry":0.0462283453,"Bored":0.0060646179,"Sad":0.0110027929,"Happy":0.5032691089,"Excited":0.3015154132}}
+
+<?php
+require(__DIR__ . '/vendor/paralleldots/apis/autoload.php');
+echo sarcasm("Did you hear the latest Porcupine Tree song ? It's rocking !");
+?>
+{"Non-Sarcastic":0.7400845568,"Sarcastic":0.2599154432}
 
 <?php
 require(__DIR__ . '/vendor/paralleldots/apis/autoload.php');
