@@ -1,5 +1,5 @@
 <?php
-
+$host='https://apis.paralleldots.com/v4/';
 function set_api_key($api_key)
 {
 	putenv("pd_api_key=$api_key");
@@ -23,7 +23,7 @@ if(getenv("pd_api_key"))
 $api_key = getenv("pd_api_key");
 else
 return "Set an api key";
-$url = 'https://apis.paralleldots.com/v3/abuse';
+$url = $GLOBALS['host'].'abuse';
 $data = array();
 $data['api_key'] = $api_key;
 $data['text'] = $text;
@@ -43,7 +43,7 @@ if(getenv("pd_api_key"))
 $api_key = getenv("pd_api_key");
 else
 return "Set an api key";
-$url = 'https://apis.paralleldots.com/v3/abuse_batch';
+$url = $GLOBALS['host'].'abuse_batch';
 $data = array();
 $data['api_key'] = $api_key;
 $data['text'] = $text_list;
@@ -64,7 +64,7 @@ if(getenv("pd_api_key"))
 $api_key = getenv("pd_api_key");
 else
 return "Set an api key";
-$url = 'https://apis.paralleldots.com/v3/custom_classifier';
+$url = $GLOBALS['host'].'custom_classifier';
 $data = array();
 $data['api_key'] = $api_key;
 $data['text'] = $text;
@@ -85,7 +85,7 @@ if(getenv("pd_api_key"))
 $api_key = getenv("pd_api_key");
 else
 return "Set an api key";
-$url = 'https://apis.paralleldots.com/v3/emotion';
+$url = $GLOBALS['host'].'emotion';
 $data = array();
 $data['api_key'] = $api_key;
 $data['text'] = $text;
@@ -105,7 +105,7 @@ if(getenv("pd_api_key"))
 $api_key = getenv("pd_api_key");
 else
 return "Set an api key";
-$url = 'https://apis.paralleldots.com/v3/emotion';
+$url = $GLOBALS['host'].'emotion';
 $data = array();
 $data['api_key'] = $api_key;
 $data['text'] = $text;
@@ -126,7 +126,7 @@ if(getenv("pd_api_key"))
 $api_key = getenv("pd_api_key");
 else
 return "Set an api key";
-$url = 'https://apis.paralleldots.com/v3/emotion_batch';
+$url = $GLOBALS['host'].'emotion_batch';
 $data = array();
 $data['api_key'] = $api_key;
 $data['text'] = $text_list;
@@ -146,7 +146,7 @@ if(getenv("pd_api_key"))
 $api_key = getenv("pd_api_key");
 else
 return "Set an api key";
-$url = 'https://apis.paralleldots.com/v3/emotion_batch';
+$url = $GLOBALS['host'].'emotion_batch';
 $data = array();
 $data['api_key'] = $api_key;
 $data['text'] = $text_list;
@@ -170,7 +170,7 @@ $fileName = $path;
 $finfo = finfo_open(FILEINFO_MIME_TYPE);
 $finfo = finfo_file($finfo, $fileName);
 $baseName = basename($fileName);
-$url = 'https://apis.paralleldots.com/v3/facial_emotion';
+$url = $GLOBALS['host'].'facial_emotion';
 $cFile = new CURLFile($fileName, $finfo, basename($fileName));
 $data = array();
 $data['api_key'] = $api_key;
@@ -193,7 +193,7 @@ if(getenv("pd_api_key"))
 $api_key = getenv("pd_api_key");
 else
 return "Set an api key";
-$url = 'https://apis.paralleldots.com/v3/facial_emotion';
+$url = $GLOBALS['host'].'facial_emotion';
 $data = array();
 $data['api_key'] = $api_key;
 $data['url'] = $url_to_image;
@@ -215,7 +215,7 @@ if(getenv("pd_api_key"))
 $api_key = getenv("pd_api_key");
 else
 return "Set an api key";
-$url = 'https://apis.paralleldots.com/v3/intent';
+$url = $GLOBALS['host'].'intent';
 $data = array();
 $data['api_key'] = $api_key;
 $data['text'] = $text;
@@ -235,7 +235,7 @@ if(getenv("pd_api_key"))
 $api_key = getenv("pd_api_key");
 else
 return "Set an api key";
-$url = 'https://apis.paralleldots.com/v3/intent_batch';
+$url = $GLOBALS['host'].'intent_batch';
 $data = array();
 $data['api_key'] = $api_key;
 $data['text'] = $text_list;
@@ -255,7 +255,7 @@ if(getenv("pd_api_key"))
 $api_key = getenv("pd_api_key");
 else
 return "Set an api key";
-$url = 'https://apis.paralleldots.com/v3/keywords';
+$url = $GLOBALS['host'].'keywords';
 $data = array();
 $data['api_key'] = $api_key;
 $data['text'] = $text;
@@ -275,7 +275,7 @@ if(getenv("pd_api_key"))
 $api_key = getenv("pd_api_key");
 else
 return "Set an api key";
-$url = 'https://apis.paralleldots.com/v3/keywords_batch';
+$url = $GLOBALS['host'].'keywords_batch';
 $data = array();
 $data['api_key'] = $api_key;
 $data['text'] = $text_list;
@@ -295,7 +295,7 @@ if(getenv("pd_api_key"))
 $api_key = getenv("pd_api_key");
 else
 return "Set an api key";
-$url = 'https://apis.paralleldots.com/v3/language_detection';
+$url = $GLOBALS['host'].'language_detection';
 $data = array();
 $data['api_key'] = $api_key;
 $data['text'] = $text;
@@ -315,7 +315,7 @@ if(getenv("pd_api_key"))
 $api_key = getenv("pd_api_key");
 else
 return "Set an api key";
-$url = 'https://apis.paralleldots.com/v3/language_detection_batch';
+$url = $GLOBALS['host'].'language_detection_batch';
 $data = array();
 $data['api_key'] = $api_key;
 $data['text'] = $text_list;
@@ -336,7 +336,7 @@ $api_key = getenv("pd_api_key");
 else
 return "Set an api key";
 $lang_code = urlencode($lang_code);
-$url = 'https://apis.paralleldots.com/v3/multilang_keywords';
+$url = $GLOBALS['host'].'multilang_keywords';
 $data = array();
 $data['api_key'] = $api_key;
 $data['text'] = $text;
@@ -357,7 +357,7 @@ if(getenv("pd_api_key"))
 $api_key = getenv("pd_api_key");
 else
 return "Set an api key";
-$url = 'https://apis.paralleldots.com/v3/ner';
+$url = $GLOBALS['host'].'ner';
 $data = array();
 $data['api_key'] = $api_key;
 $data['text'] = $text;
@@ -377,7 +377,7 @@ if(getenv("pd_api_key"))
 $api_key = getenv("pd_api_key");
 else
 return "Set an api key";
-$url = 'https://apis.paralleldots.com/v3/ner_batch';
+$url = $GLOBALS['host'].'ner_batch';
 $data = array();
 $data['api_key'] = $api_key;
 $data['text'] = $text_list;
@@ -401,7 +401,7 @@ $fileName = $path;
 $finfo = finfo_open(FILEINFO_MIME_TYPE);
 $finfo = finfo_file($finfo, $fileName);
 $baseName = basename($fileName);
-$url = 'https://apis.paralleldots.com/v3/nsfw';
+$url = $GLOBALS['host'].'nsfw';
 $cFile = new CURLFile($fileName, $finfo, basename($fileName));
 $data = array();
 $data['api_key'] = $api_key;
@@ -424,7 +424,7 @@ if(getenv("pd_api_key"))
 $api_key = getenv("pd_api_key");
 else
 return "Set an api key";
-$url = 'https://apis.paralleldots.com/v3/nsfw';
+$url = $GLOBALS['host'].'nsfw';
 $data = array();
 $data['api_key'] = $api_key;
 $data['url'] = $url_to_image;
@@ -449,7 +449,7 @@ $fileName = $path;
 $finfo = finfo_open(FILEINFO_MIME_TYPE);
 $finfo = finfo_file($finfo, $fileName);
 $baseName = basename($fileName);
-$url = 'https://apis.paralleldots.com/v3/object_recognizer';
+$url = $GLOBALS['host'].'object_recognizer';
 $cFile = new CURLFile($fileName, $finfo, basename($fileName));
 $data = array();
 $data['api_key'] = $api_key;
@@ -472,7 +472,7 @@ if(getenv("pd_api_key"))
 $api_key = getenv("pd_api_key");
 else
 return "Set an api key";
-$url = 'https://apis.paralleldots.com/v3/object_recognizer';
+$url = $GLOBALS['host'].'object_recognizer';
 $data = array();
 $data['api_key'] = $api_key;
 $data['url'] = $url_to_image;
@@ -495,7 +495,7 @@ if(getenv("pd_api_key"))
 $api_key = getenv("pd_api_key");
 else
 return "Set an api key";
-$url = 'https://apis.paralleldots.com/v3/phrase_extractor';
+$url = $GLOBALS['host'].'phrase_extractor';
 $data = array();
 $data['api_key'] = $api_key;
 $data['text'] = $text;
@@ -515,7 +515,7 @@ if(getenv("pd_api_key"))
 $api_key = getenv("pd_api_key");
 else
 return "Set an api key";
-$url = 'https://apis.paralleldots.com/v3/phrase_extractor_batch';
+$url = $GLOBALS['host'].'phrase_extractor_batch';
 $data = array();
 $data['api_key'] = $api_key;
 $data['text'] = $text_list;
@@ -539,7 +539,7 @@ $fileName = $path;
 $finfo = finfo_open(FILEINFO_MIME_TYPE);
 $finfo = finfo_file($finfo, $fileName);
 $baseName = basename($fileName);
-$url = 'https://apis.paralleldots.com/v3/popularity';
+$url = $GLOBALS['host'].'popularity';
 $cFile = new CURLFile($fileName, $finfo, basename($fileName));
 $data = array();
 $data['api_key'] = $api_key;
@@ -562,7 +562,7 @@ if(getenv("pd_api_key"))
 $api_key = getenv("pd_api_key");
 else
 return "Set an api key";
-$url = 'https://apis.paralleldots.com/v3/popularity';
+$url = $GLOBALS['host'].'popularity';
 $data = array();
 $data['api_key'] = $api_key;
 $data['url'] = $url_to_image;
@@ -584,7 +584,7 @@ if(getenv("pd_api_key"))
 $api_key = getenv("pd_api_key");
 else
 return "Set an api key";
-$url = 'https://apis.paralleldots.com/v3/sentiment';
+$url = $GLOBALS['host'].'sentiment';
 $data = array();
 $data['api_key'] = $api_key;
 $data['text'] = $text;
@@ -604,7 +604,7 @@ if(getenv("pd_api_key"))
 $api_key = getenv("pd_api_key");
 else
 return "Set an api key";
-$url = 'https://apis.paralleldots.com/v3/sentiment';
+$url = $GLOBALS['host'].'sentiment';
 $data = array();
 $data['api_key'] = $api_key;
 $data['text'] = $text;
@@ -625,7 +625,7 @@ if(getenv("pd_api_key"))
 $api_key = getenv("pd_api_key");
 else
 return "Set an api key";
-$url = 'https://apis.paralleldots.com/v3/sentiment_batch';
+$url = $GLOBALS['host'].'sentiment_batch';
 $data = array();
 $data['api_key'] = $api_key;
 $data['text'] = $text_list;
@@ -638,14 +638,95 @@ $result = curl_exec($ch);
 return $result;
 }
 
-function sentiment_multilang_batch($text_list, $lang_code)
+
+function target_sentiment($text, $entity,$lang_code)
 {
-// $text_list = urlencode($text_list);
 if(getenv("pd_api_key"))
 $api_key = getenv("pd_api_key");
 else
 return "Set an api key";
-$url = 'https://apis.paralleldots.com/v3/sentiment_batch';
+$url = $GLOBALS['host'].'target/sentiment';
+$data = array();
+$data['api_key'] = $api_key;
+$data['text'] = $text;
+$data['entity'] = $entity;
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array("content-type: multipart/form-data"));
+$result = curl_exec($ch);
+return $result;
+}
+
+function target_sentiment_batch($text_list, $entity, $lang_code )
+{
+if(getenv("pd_api_key"))
+$api_key = getenv("pd_api_key");
+else
+return "Set an api key";
+$url = $GLOBALS['host'].'target/sentiment_batch';
+$data = array();
+$data['api_key'] = $api_key;
+$data['text'] = $text_list;
+$data['entity'] = $entity;
+$data['lang_code'] = $lang_code;
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array("content-type: multipart/form-data"));
+$result = curl_exec($ch);
+return $result;
+}
+
+
+function sarcasm($text)
+{
+if(getenv("pd_api_key"))
+$api_key = getenv("pd_api_key");
+else
+return "Set an api key";
+$url = $GLOBALS['host'].'sarcasm';
+$data = array();
+$data['api_key'] = $api_key;
+$data['text'] = $text;
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array("content-type: multipart/form-data"));
+$result = curl_exec($ch);
+return $result;
+}
+
+function sarcasm_batch($text_list)
+{
+if(getenv("pd_api_key"))
+$api_key = getenv("pd_api_key");
+else
+return "Set an api key";
+$url = $GLOBALS['host'].'sarcasm_batch';
+$data = array();
+$data['api_key'] = $api_key;
+$data['text'] = $text_list;
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array("content-type: multipart/form-data"));
+$result = curl_exec($ch);
+return $result;
+}
+
+
+function sentiment_multilang_batch($text_list, $lang_code)
+{
+if(getenv("pd_api_key"))
+$api_key = getenv("pd_api_key");
+else
+return "Set an api key";
+$url = $GLOBALS['host'].'sentiment_batch';
 $data = array();
 $data['api_key'] = $api_key;
 $data['text'] = $text_list;
@@ -661,13 +742,11 @@ return $result;
 
 function similarity($text1,$text2)
 {
-// $text1 = urlencode($text1);
-// $text2 = urlencode($text2);
 if(getenv("pd_api_key"))
 $api_key = getenv("pd_api_key");
 else
 return "Set an api key";
-$url = 'https://apis.paralleldots.com/v3/similarity';
+$url = $GLOBALS['host'].'similarity';
 $data = array();
 $data['api_key'] = $api_key;
 $data['text_1'] = $text1;
@@ -688,7 +767,7 @@ if(getenv("pd_api_key"))
 $api_key = getenv("pd_api_key");
 else
 return "Set an api key";
-$url = 'https://apis.paralleldots.com/v3/taxonomy';
+$url = $GLOBALS['host'].'taxonomy';
 $data = array();
 $data['api_key'] = $api_key;
 $data['text'] = $text;
@@ -708,7 +787,7 @@ if(getenv("pd_api_key"))
 $api_key = getenv("pd_api_key");
 else
 return "Set an api key";
-$url = 'https://apis.paralleldots.com/v3/taxonomy_batch';
+$url = $GLOBALS['host'].'taxonomy_batch';
 $data = array();
 $data['api_key'] = $api_key;
 $data['text'] = $text_list;
@@ -728,7 +807,7 @@ if(getenv("pd_api_key"))
 $api_key = getenv("pd_api_key");
 else
 return "Set an api key";
-$url = 'https://apis.paralleldots.com/v3/text_parser';
+$url = $GLOBALS['host'].'text_parser';
 $data = array();
 $data['api_key'] = $api_key;
 $data['text'] = $text;
@@ -747,7 +826,7 @@ if(getenv("pd_api_key"))
 $api_key = getenv("pd_api_key");
 else
 return "Set an api key";
-$url = 'https://apis.paralleldots.com/usage';
+$url = 'http://104.154.213.9/usage';
 $data = array();
 $data['api_key'] = $api_key;
 $ch = curl_init($url);
