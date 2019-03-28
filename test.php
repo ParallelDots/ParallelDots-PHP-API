@@ -1,5 +1,5 @@
 <?php
-require(__DIR__ . '/autoload.php');
+require(__DIR__ . '/vendor/paralleldots/apis/autoload.php');
 
 set_api_key("paste here api_key");
 
