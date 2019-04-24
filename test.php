@@ -19,6 +19,7 @@ echo taxonomy_batch($text_list1);
 echo taxonomy($text);
 echo emotion_multilang($text2, "fr");
 echo ner($text);
+echo ner_multilang($text,'en');
 echo ner_batch($text_list1);
 echo abuse($text);
 echo abuse_batch($text_list1);

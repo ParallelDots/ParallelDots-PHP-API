@@ -370,6 +370,27 @@ $result = curl_exec($ch);
 return $result;
 }
 
+function ner_multilang($text,$lang_code)
+{
+// $text = urlencode($text);
+if(getenv("pd_api_key"))
+$api_key = getenv("pd_api_key");
+else
+return "Set an api key";
+$url = $GLOBALS['host'].'ner';
+$data = array();
+$data['api_key'] = $api_key;
+$data['text'] = $text;
+$data['lang_code'] = $lang_code;
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array("content-type: multipart/form-data"));
+$result = curl_exec($ch);
+return $result;
+}
+
 function ner_batch($text_list)
 {
 // $text_list = urlencode($text_list);
@@ -390,6 +411,26 @@ $result = curl_exec($ch);
 return $result;
 }
 
+function ner_multilang_batch($text_list,$lang_code)
+{
+// $text_list = urlencode($text_list);
+if(getenv("pd_api_key"))
+$api_key = getenv("pd_api_key");
+else
+return "Set an api key";
+$url = $GLOBALS['host'].'ner_batch';
+$data = array();
+$data['api_key'] = $api_key;
+$data['text'] = $text_list;
+$data['lang_code'] = $lang_code;
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array("content-type: multipart/form-data"));
+$result = curl_exec($ch);
+return $result;
+}
 
 function nsfw($path)
 {
