@@ -66,10 +66,10 @@ echo abuse_batch($text_list);
 
 <?php
 require(__DIR__ . '/vendor/paralleldots/apis/autoload.php');
-$obj = "{\"world politics\":[\"diplomacy\",\"UN\",\"war\"],\"finance\":[\"markets\",\"economy\",\"shares\"]}";
+$obj = json_encode(array("world politics", "news"));
 echo custom_classifier("Donald Trump is the President of the United States of America.", $obj);
 ?>
-{"taxonomy":[{"tag":"world politics","confidence_score":0.9589139819},{"tag":"finance","confidence_score":0.4599229991}]}
+{"taxonomy":[{"category":"world politics","confidence_score":0.5382496715},{"category":"news","confidence_score":0.1232979}]}
 
 <?php
 require(__DIR__ . '/vendor/paralleldots/apis/autoload.php');

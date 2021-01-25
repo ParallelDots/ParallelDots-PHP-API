@@ -680,17 +680,17 @@ return $result;
 }
 
 
-function target_sentiment($text, $entity,$lang_code)
+function target_sentiment($text, $aspect,$lang_code)
 {
 if(getenv("pd_api_key"))
 $api_key = getenv("pd_api_key");
 else
 return "Set an api key";
-$url = $GLOBALS['host'].'target/sentiment';
+$url = $GLOBALS['host'].'target_sentiment';
 $data = array();
 $data['api_key'] = $api_key;
 $data['text'] = $text;
-$data['entity'] = $entity;
+$data['aspect'] = $aspect;
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
